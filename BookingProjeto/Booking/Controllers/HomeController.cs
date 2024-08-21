@@ -295,6 +295,8 @@ namespace Booking.Controllers
 
         public List<Ocupado> OrganizaReservas(List<Ocupado> listReservas)
         {
+            
+
             for (int i = 0; i <= listReservas.Count() - 1; i++)
             {
                 for (int y = 0; y <= listReservas.Count() - 1; y++)
@@ -308,28 +310,38 @@ namespace Booking.Controllers
                             listReservas.Remove(listReservas[i]);
                             y--;
                         }
-                        else
-                        {
-                            if (listReservas[i].IdtipoQuarto == listReservas[y].IdtipoQuarto && listReservas[i].Idhotel == listReservas[y].Idhotel)
-                            {
-                                //foreach (DateTime j in listReservas[i].Datas)
-                                //{
-                                //    foreach (DateTime k in listReservas[y].Datas)
-                                //    {
-                                for (DateTime j = listReservas[i].CheckIn; j < listReservas[i].CheckOut; j = j.AddDays(1))
-                                {
-                                    for (DateTime k = listReservas[y].CheckIn; k < listReservas[y].CheckOut; k = k.AddDays(1))
-                                    {
-                                        if (k == j)
-                                        {
-                                            listReservas[y].QuantQuartos += listReservas[i].QuantQuartos;
-                                            //listReservas.Remove(listReservas[i]);
-                                            //y--;
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        //else
+                        //{
+                        //    if (listReservas[i].IdtipoQuarto == listReservas[y].IdtipoQuarto && listReservas[i].Idhotel == listReservas[y].Idhotel)
+                        //    {
+                        //        int numj = 0;
+                        //        foreach (DateTime k in listReservas[y].Datas)
+                        //        {
+                        //            int numk = 0;
+                        //            foreach (DateTime j in listReservas[i].Datas)
+                        //            {
+                        //                //for (DateTime l = listReservas[i].CheckIn; l < listReservas[i].CheckOut; l = l.AddDays(1))
+                        //                //{
+                        //                //    for (DateTime m = listReservas[y].CheckIn; m < listReservas[y].CheckOut; m = m.AddDays(1))
+                        //                //    {
+                        //                if (k == j)
+                        //                {
+                        //                    if (listReservas[i].Datas[0] == listReservas[y].Datas[3])
+                        //                    {
+                        //                        listReservas[y].QuantQuartos += listReservas[i].QuantQuartos;
+
+                        //                        //y--;
+                        //                    }
+
+                        //                }
+                        //                numk++;
+                        //            }
+                        //            listReservas[i].Datas.RemoveAt(numj);
+                        //            numj++;
+                        //        }
+
+                        //    }
+                        //}
                     }
                 }
             }
